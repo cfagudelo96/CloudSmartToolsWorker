@@ -1,0 +1,14 @@
+GEM
+  specs:
+    multi_json (1.12.2)
+    streamio-ffmpeg (3.0.2)
+      multi_json (~> 1.8)
+
+PLATFORMS
+  x64-mingw32
+
+DEPENDENCIES
+  streamio-ffmpeg
+
+BUNDLED WITH
+   1.15.3
