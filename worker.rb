@@ -20,7 +20,7 @@ Dir.new(original_video_path).each do |movie_folder|
     movie_file = File.new("#{converted_folder_path}/#{movie_folder}.mp4", 'w')
     movie = FFMPEG::Movie.new("#{original_video_path}/#{movie_folder}/#{movie_path}")
     movie.transcode(movie_file.path)
-    converted_videos << movie_folder
+    converted_videos.push(movie_folder.to_i)
     File.rename("#{original_video_path}/#{movie_folder}", "#{original_video_path}/#{movie_folder}")
   end
 end
