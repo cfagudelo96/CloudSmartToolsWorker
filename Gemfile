@@ -1,3 +1,3 @@
-gem 'streamio-ffmpeg'
+source 'https://rubygems.org'
 
-gem 'json'
+gem 'streamio-ffmpeg'

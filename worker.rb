@@ -1,7 +1,5 @@
-require 'net/http'
-require 'uri'
-require 'json'
 require 'streamio-ffmpeg'
+require 'httparty'
 
 converted_videos = []
 ignored_files = %w[. ..]
@@ -26,15 +24,8 @@ Dir.new(original_video_path).each do |movie_folder|
   end
 end
 
-uri = URI.parse('ec2-34-229-67-157.compute-1.amazonaws.com/contests/videos_transcoded')
-
-header = {'Content-Type' => 'text/json'}
-videos = {videos: converted_videos}
-
-http = Net::HTTP.new(uri.host, uri.port)
-request = Net::HTTP::Post.new(uri.request_uri, header)
-request.body = videos.to_json
-
-# Send the request
-response = http.request(request)
-puts response
+unless converted_videos.empty?
+  uri = URI('ec2-34-229-67-157.compute-1.amazonaws.com/contests/videos_transcoded')
+  res = Net::HTTP.post_form(uri, videos: converted_videos)
+  puts res.body
+end
