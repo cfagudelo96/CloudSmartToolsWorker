@@ -25,7 +25,7 @@ Dir.new(original_video_path).each do |movie_folder|
 end
 
 unless converted_videos.empty?
-  uri = URI('ec2-34-229-67-157.compute-1.amazonaws.com/contests/videos_transcoded')
+  uri = URI('http://ec2-34-229-67-157.compute-1.amazonaws.com/contests/videos_transcoded')
   res = Net::HTTP.post_form(uri, videos: converted_videos)
   puts res.body
 end
