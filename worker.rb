@@ -29,8 +29,10 @@ unless converted_videos.empty?
   uri = URI.parse('http://ec2-34-229-67-157.compute-1.amazonaws.com/contests/videos_transcoded')
   header = {'Content-Type' => 'text/json'}
   videos = {videos: converted_videos}
+  puts converted_videos
   http = Net::HTTP.new(uri.host, uri.port)
   request = Net::HTTP::Post.new(uri.request_uri, header)
+  puts videos.to_json
   request.body = videos.to_json
   response = http.request(request)
   puts response
