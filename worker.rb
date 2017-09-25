@@ -1,4 +1,4 @@
-require 'net/http'
+require 'httparty'
 require 'json'
 require 'streamio-ffmpeg'
 
@@ -25,8 +25,8 @@ Dir.new(original_video_path).each do |movie_folder|
   end
 end
 
+puts converted_videos
+
 unless converted_videos.empty?
-  uri = URI('http://ec2-34-229-67-157.compute-1.amazonaws.com/contests/videos_transcoded')
-  res = Net::HTTP.post_form(uri, 'videos' => converted_videos.to_a)
-  puts res.body
+  HTTParty.post('http://ec2-34-229-67-157.compute-1.amazonaws.com/contests/videos_transcoded', body: {videos: converted_videos}.to_json, headers: { 'Content-Type' => 'application/json' })
 end
