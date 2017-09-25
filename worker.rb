@@ -1,5 +1,4 @@
 require 'streamio-ffmpeg'
-require 'httparty'
 
 converted_videos = []
 ignored_files = %w[. ..]
