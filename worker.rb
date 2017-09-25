@@ -34,7 +34,5 @@ unless converted_videos.empty?
   request = Net::HTTP::Post.new(uri.request_uri, header)
   puts videos.to_json
   request.body = videos.to_json
-  response = http.request(request)
-  puts response
-  puts response.body
+  http.request(request)
 end
