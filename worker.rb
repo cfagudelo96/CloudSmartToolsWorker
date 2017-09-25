@@ -26,6 +26,5 @@ end
 
 unless converted_videos.empty?
   uri = URI('http://ec2-34-229-67-157.compute-1.amazonaws.com/contests/videos_transcoded')
-  res = Net::HTTP.post_form(uri, videos: converted_videos)
-  puts res.body
+  Net::HTTP.post_form(uri, videos: converted_videos)
 end
