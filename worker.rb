@@ -1,3 +1,4 @@
+require 'net/http'
 require 'streamio-ffmpeg'
 
 converted_videos = []
