@@ -27,5 +27,5 @@ end
 http_uri = URI('ec2-34-229-67-157.compute-1.amazonaws.com/contests/videos_transcoded')
 params = {videos: converted_videos}
 http_uri.query = URI.encode_www_form(params)
-res = Net::HTTP.get_response(uri)
+res = Net::HTTP.get_response(http_uri)
 puts res.body if res.is_a?(Net::HTTPSuccess)
