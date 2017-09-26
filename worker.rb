@@ -26,5 +26,5 @@ Dir.new(original_video_path).each do |movie_folder|
 end
 
 unless converted_videos.empty?
-  HTTParty.post('http://ec2-34-229-67-157.compute-1.amazonaws.com/contests/videos_transcoded', body: {videos: converted_videos}.to_json, headers: { 'Content-Type' => 'application/json' })
+  HTTParty.post('http://ec2-52-91-154-138.compute-1.amazonaws.com/contests/videos_transcoded', body: {videos: converted_videos}.to_json, headers: { 'Content-Type' => 'application/json' })
 end
